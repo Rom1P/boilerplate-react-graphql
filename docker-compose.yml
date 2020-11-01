@@ -1,0 +1,21 @@
+version: '3'
+services:
+#  server:
+#    build:
+#      context: ./server
+#    ports:
+#      - "8080:8080"
+#    container_name: graphql-server
+#    volumes:
+#      - ./server:/usr/src/app/server
+#      - /usr/src/app/server/node_modules
+  react:
+    build:
+      context: ./web
+    ports:
+      - "3000:3000"
+    container_name: react
+    stdin_open: true
+    volumes:
+      - ./web:/usr/src/app/web
+      - /usr/src/app/web/node_modules
