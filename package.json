@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": ""
-  },
+  },"homepage": "https://github.com/owner/project#readme",
   "author": "",
   "license": "ISC",
   "devDependencies": {
