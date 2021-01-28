@@ -6,12 +6,12 @@ import UpdateNoteInput from '../inputs/UpdateNoteInput';
 @Resolver()
 export default class NoteResolver {
     @Query(() => [Note])
-    books() {
+    notes() {
         return Note.find();
     }
 
     @Query(() => Note)
-    book(@Arg('id') id: string) {
+    note(@Arg('id') id: string) {
         return Note.findOne({ where: { id } });
     }
 

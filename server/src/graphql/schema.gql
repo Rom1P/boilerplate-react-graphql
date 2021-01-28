@@ -3,30 +3,29 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
-type Book {
-  author: String!
-  id: ID!
-  isPublished: Boolean!
-  title: String!
-}
-
-input CreateBookInput {
+input CreateNoteInput {
   author: String!
   title: String!
 }
 
 type Mutation {
-  createBook(data: CreateBookInput!): Book!
-  deleteBook(id: String!): Boolean!
-  updateBook(data: UpdateBookInput!, id: String!): Book!
+  createNote(data: CreateNoteInput!): Note!
+  deleteNote(id: String!): Boolean!
+  updateNote(data: UpdateNoteInput!, id: String!): Note!
+}
+
+type Note {
+  content: String!
+  id: ID!
+  title: String!
 }
 
 type Query {
-  book(id: String!): Book!
-  books: [Book!]!
+  note(id: String!): Note!
+  notes: [Note!]!
 }
 
-input UpdateBookInput {
+input UpdateNoteInput {
   author: String
   isPublished: Boolean
   title: String
