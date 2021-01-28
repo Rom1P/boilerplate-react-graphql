@@ -20,7 +20,7 @@
     "eject": "react-scripts eject",
     "lint": "eslint .",
     "lint-fix": "eslint --fix --ext .js,.jsx .",
-  "clean": "rm -rf build"
+    "clean": "rm -rf build"
   },
   "browserslist": {
     "production": [
