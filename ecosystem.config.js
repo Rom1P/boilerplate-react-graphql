@@ -7,7 +7,7 @@ module.exports = {
     deploy: {
         pi: {
             user: 'pi',
-            host: '192.168.1.16',
+            host: 'pi.local',
             ref: 'origin/master',
             repo: 'https://github.com/Rom1P/boilerplate-react-graphql',
             path: '/var/www/pi',
