@@ -4,7 +4,8 @@
     "description": "boilerplate react graphql",
     "main": "index.js",
     "scripts": {
-        "build": "cd web && npm run build"
+        "build": "cd web && npm run build",
+        "clean": "cd client && npm run clean"
     },
     "homepage": "https://github.com/Rom1P/boilerplate-react-graphql",
     "author": "",
