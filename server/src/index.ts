@@ -1,16 +1,19 @@
+/* eslint-disable no-console */
 import 'reflect-metadata';
-import { createConnection } from 'typeorm';
 import { ApolloServer } from 'apollo-server';
-import { buildSchema } from 'type-graphql';
+import initGraphql from './graphql';
 
-import { BookResolver } from './resolvers/BookResolver';
-
-async function main() {
-    // await createConnection();
-    const schema = await buildSchema({ resolvers: [BookResolver] });
-    const server = new ApolloServer({ schema });
-    await server.listen(4000);
-    console.log('Server has started!');
-}
-
-main();
+(async () => {
+    try {
+        // await createConnection();
+        const schema = await initGraphql();
+        const server = new ApolloServer({
+            schema
+        });
+        server.listen(8080).then(({ url }) => {
+            console.log(`🚀 Server ready at ${url}`);
+        });
+    } catch (e) {
+        console.error('Error while starting server ', e);
+    }
+})();

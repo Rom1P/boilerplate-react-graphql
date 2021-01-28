@@ -5,12 +5,14 @@
   "private": true,
   "dependencies": {
     "apollo-server": "^2.19.0",
+    "class-validator": "^0.13.1",
+    "graphql": "^15.4.0",
     "reflect-metadata": "^0.1.13",
     "type-graphql": "^1.1.1",
     "typeorm": "^0.2.29"
   },
   "scripts": {
-    "start": "nodemon -w src --ext ts --exec ts-node src/index.ts",
+    "start": "nodemon -L -e ts --exec 'tsc -p ./tsconfig.json && node ./dist/index.js'",
     "lint": "eslint . --ext .ts"
   },
   "devDependencies": {

@@ -1,15 +1,17 @@
 {
-  "name": "boilerplate-react-graphql",
-  "version": "1.0.0",
-  "description": "boilerplate react graphql",
-  "main": "index.js",
-  "scripts": {
-    "watch": ""
-  },"homepage": "https://github.com/owner/project#readme",
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "npm-run-all": "^4.1.5"
-  },
-  "dependencies": {}
+    "name": "boilerplate-react-graphql",
+    "version": "1.0.0",
+    "description": "boilerplate react graphql",
+    "main": "index.js",
+    "scripts": {
+        "build": "cd web && npm run build"
+    },
+    "homepage": "https://github.com/Rom1P/boilerplate-react-graphql",
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "npm-run-all": "^4.1.5",
+        "pm2": "^4.5.1"
+    },
+    "dependencies": {}
 }

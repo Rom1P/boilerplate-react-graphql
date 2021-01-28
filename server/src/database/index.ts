@@ -1,5 +1,7 @@
-import Book from './models/Book';
+import Note from './models/Note';
+import User from './models/User';
 
 export default {
-    ...Book
+    ...Note,
+    ...User
 };

@@ -1,4 +1,4 @@
-version: '3'
+version: '3.7'
 services:
   server:
     build:
@@ -9,6 +9,11 @@ services:
     volumes:
       - ./server:/usr/src/app/server
       - /usr/src/app/server/node_modules
+    restart: always
+    env_file: ./server/.env
+    networks:
+      - backend
+      - frontend
   react:
     build:
       context: ./web
@@ -19,3 +24,26 @@ services:
     volumes:
       - ./web:/usr/src/app/web
       - /usr/src/app/web/node_modules
+    networks:
+      - frontend
+  db:
+    image: mysql:5.7
+    restart: always
+    networks:
+      - backend
+    environment:
+      MYSQL_DATABASE: 'db'
+      MYSQL_USER: 'user'
+      MYSQL_PASSWORD: 'password'
+      MYSQL_ROOT_PASSWORD: 'password'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - db:/var/lib/mysql
+networks:
+  backend:
+  frontend:
+volumes:
+  db:

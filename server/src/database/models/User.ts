@@ -3,20 +3,32 @@ import { ObjectType, Field, ID } from 'type-graphql';
 
 @Entity()
 @ObjectType()
-export default class Book extends BaseEntity {
+export default class User extends BaseEntity {
     @Field(() => ID)
     @PrimaryGeneratedColumn()
     id: string;
 
     @Field(() => String)
     @Column()
-    title: string;
+    firstName: string;
 
     @Field(() => String)
     @Column()
-    author: string;
+    lastName: string;
+
+    @Field(() => String)
+    @Column()
+    password: string;
+
+    @Field(() => String)
+    @Column()
+    role: string;
+
+    @Field(() => String)
+    @Column()
+    token: string;
 
     @Field(() => Boolean)
     @Column({ default: false })
-    isPublished: boolean;
+    isActive: boolean;
 }

@@ -1,7 +1,7 @@
 import { InputType, Field } from 'type-graphql';
 
 @InputType()
-export default class CreateBookInput {
+export default class CreateNoteInput {
     @Field()
     title: string;
 
