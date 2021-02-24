@@ -1,11 +1,22 @@
 /* eslint-disable no-console */
 import 'reflect-metadata';
 import { ApolloServer } from 'apollo-server';
+import { createConnection } from 'typeorm';
 import initGraphql from './graphql';
+import databaseConfig from './config/database';
+
+console.log(databaseConfig);
 
 (async () => {
     try {
-        // await createConnection();
+        await createConnection({
+            type: 'mysql',
+            host: databaseConfig.host,
+            port: 3306,
+            username: 'user',
+            password: 'password',
+            database: 'db'
+        });
         const schema = await initGraphql();
         const server = new ApolloServer({
             schema

@@ -1,4 +1,11 @@
 version: '3.7'
+
+x-database-variables: &database-variables
+  MYSQL_DATABASE: 'db'
+  MYSQL_USER: 'user'
+  MYSQL_PASSWORD: 'password'
+  MYSQL_ROOT_PASSWORD: 'password'
+
 services:
   server:
     build:
@@ -11,6 +18,9 @@ services:
       - /usr/src/app/server/node_modules
     restart: always
     env_file: ./server/.env
+    environment:
+      <<: *database-variables
+      MYSQL_HOST: mysql
     networks:
       - backend
       - frontend
@@ -26,20 +36,16 @@ services:
       - /usr/src/app/web/node_modules
     networks:
       - frontend
-  db:
+  mysql:
     image: mysql:5.7
-    restart: always
+    container_name: mysql
+    restart: unless-stopped
     networks:
       - backend
     environment:
-      MYSQL_DATABASE: 'db'
-      MYSQL_USER: 'user'
-      MYSQL_PASSWORD: 'password'
-      MYSQL_ROOT_PASSWORD: 'password'
+      <<: *database-variables
     ports:
       - '3306:3306'
-    expose:
-      - '3306'
     volumes:
       - db:/var/lib/mysql
 networks:

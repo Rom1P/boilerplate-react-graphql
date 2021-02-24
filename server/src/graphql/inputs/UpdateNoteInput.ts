@@ -6,8 +6,5 @@ export default class UpdateNoteInput {
     title?: string;
 
     @Field({ nullable: true })
-    author?: string;
-
-    @Field({ nullable: true })
-    isPublished?: boolean;
+    userId?: string;
 }

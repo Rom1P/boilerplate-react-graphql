@@ -26,7 +26,6 @@ type Query {
 }
 
 input UpdateNoteInput {
-  author: String
-  isPublished: Boolean
   title: String
+  userId: String
 }

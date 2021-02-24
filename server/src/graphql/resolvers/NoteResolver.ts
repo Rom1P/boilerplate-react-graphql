@@ -17,25 +17,25 @@ export default class NoteResolver {
 
     @Mutation(() => Note)
     async createNote(@Arg('data') data: CreateNoteInput) {
-        const book = Note.create(data);
-        await book.save();
-        return book;
+        const note = Note.create(data);
+        await note.save();
+        return note;
     }
 
     @Mutation(() => Note)
     async updateNote(@Arg('id') id: string, @Arg('data') data: UpdateNoteInput) {
-        const book = await Note.findOne({ where: { id } });
-        if (!book) throw new Error('Note not found!');
-        Object.assign(book, data);
-        await book.save();
-        return book;
+        const note = await Note.findOne({ where: { id } });
+        if (!note) throw new Error('Note not found!');
+        Object.assign(note, data);
+        await note.save();
+        return note;
     }
 
     @Mutation(() => Boolean)
     async deleteNote(@Arg('id') id: string) {
-        const book = await Note.findOne({ where: { id } });
-        if (!book) throw new Error('Note not found!');
-        await book.remove();
+        const note = await Note.findOne({ where: { id } });
+        if (!note) throw new Error('Note not found!');
+        await note.remove();
         return true;
     }
 }
